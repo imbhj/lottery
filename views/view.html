@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 추첨기기</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        .content > ul{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            
+            padding-top: 50px;
+        }
+        .content > ul > li{
+            border: 1px solid blue;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            box-shadow: 2px 2px;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>이번주 로또 번호는?</h1>
+        <ul>
+            {%for num in number %}
+                <li>{{num}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- <script src="./index.js"></script> -->
+</body>
+    <script>
+        const lis = document.querySelectorAll(".content > ul > li");
+        for(let i = 0; i < 6; i++){
+            let numcolor = parseInt(lis[i].textContent);
+            console.log(numcolor);
+            if(numcolor <= 10){
+                lis[i].style.background = 'yellow';
+                lis[i].innerText = numcolor;
+            }
+        
+            if(10 < numcolor && numcolor <= 20){
+                lis[i].style.background = 'blue';
+                lis[i].innerText = numcolor;
+            }
+        
+            if(20 < numcolor && numcolor <= 30){
+                lis[i].style.background = 'red';
+                lis[i].innerText = numcolor;
+            }
+        
+            if(30 < numcolor && numcolor <= 40){
+                lis[i].style.background = 'gray';
+                lis[i].innerText = numcolor;
+            }
+        
+            if(40 < numcolor && numcolor <= 45){
+                lis[i].style.background = 'green';
+                lis[i].innerText = numcolor;
+            }
+        }
+    </script>
+</html>
